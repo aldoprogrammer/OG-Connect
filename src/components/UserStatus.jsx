@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Avatar, Typography, Tooltip } from "@material-tailwind/react";
 import { ChatBubbleLeftEllipsisIcon, GiftIcon } from '@heroicons/react/24/outline';
+import Gift from '../modal/Gift';
+
 
 // Dummy JSON data
 const userData = [
@@ -68,6 +70,11 @@ const userData = [
 
 // UserStatus component
 export function UserStatus() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div className="flex flex-col gap-6">
       {userData.map(user => (
@@ -80,19 +87,23 @@ export function UserStatus() {
             </Typography>
           </div>
           <div className="flex items-center gap-2">
-            <Tooltip content="Reply" placement="top">
+            <Tooltip content="Comment" placement="top">
               <button className="flex items-center text-gray-500 hover:text-blue-500">
                 <ChatBubbleLeftEllipsisIcon className="h-6 w-6" />
               </button>
             </Tooltip>
             <Tooltip content="Send Gift" placement="top">
-              <button className="flex items-center text-gray-500 hover:text-green-500">
+              <button 
+                className="flex items-center text-gray-500 hover:text-green-500"
+                onClick={handleOpen}
+              >
                 <GiftIcon className="h-6 w-6" />
               </button>
             </Tooltip>
           </div>
         </div>
       ))}
+      <Gift open={open} handleClose={handleClose} />
     </div>
   );
 }
