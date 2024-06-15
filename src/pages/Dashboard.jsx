@@ -88,6 +88,7 @@ const Dashboard = () => {
                 <Typography variant="h4" color="blue-gray" className="mb-4">
                   Update Status TimeLine
                 </Typography>
+               <div className='border-2 border-gray-300 mb-7'/>
                 <div className='flex flex-col gap-1 w-full'>
                    <UserStatus />
                   </div>
