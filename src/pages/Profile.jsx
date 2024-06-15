@@ -12,6 +12,8 @@ import { ScaleLoader } from 'react-spinners';
 import MDEditor from '@uiw/react-md-editor';
 import '@uiw/react-md-editor/markdown-editor.css';
 import '@uiw/react-markdown-preview/markdown.css';
+import UserStatus from '../components/UserStatus';
+import YourStatus from '../components/YourStatus';
 
 const Profile = () => {
   const { showAldoAlert } = useAldoAlert();
@@ -61,7 +63,7 @@ const Profile = () => {
 
     setTimeout(() => {
       setLoading(false);
-      showAldoAlert('QR code scanned successfully!', 'warning');
+      showAldoAlert('Updated status successfully!', 'warning');
       localStorage.setItem('qrCodeData', JSON.stringify(qrData));
       setQrCodeData(qrData);
     }, 3000);
@@ -88,7 +90,7 @@ const Profile = () => {
                     <div className="mb-6">
                       <div className=' flex gap-2 items-center'>
                       <Button onClick={generateAITitle} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2">
-                        Generate AI for Status
+                        Rewrite with AI
                       </Button>
                       <Button onClick={generateAITitle} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2">
                         Fix grammar
@@ -108,7 +110,16 @@ const Profile = () => {
                         : "Post"}
                     </Button>
                   </div>
+                 
               </div>
+              <div className='flex flex-col gap-1 w-full mt-5'>
+                    <Typography variant="h4" color="blue-gray" className="mb-4">
+                      Your Status
+                    </Typography>
+                    <div className='flex flex-col gap-1 w-full'>
+                      <YourStatus />
+                    </div>
+                  </div>
             </div>
           </Card>
         </div>
