@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Avatar, Typography, Tooltip } from "@material-tailwind/react";
 import { ChatBubbleLeftEllipsisIcon, GiftIcon } from '@heroicons/react/24/outline';
 import Gift from '../modal/Gift';
-
+import CommentModal from '../modal/CommentModal'; // Import the CommentModal component
 
 // Dummy JSON data
 const userData = [
@@ -70,10 +70,19 @@ const userData = [
 
 // UserStatus component
 export function UserStatus() {
-  const [open, setOpen] = useState(false);
+  const [openGiftModal, setOpenGiftModal] = useState(false);
+  const [openCommentModal, setOpenCommentModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null); // Track the user for which comment modal is open
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpenGiftModal = () => setOpenGiftModal(true);
+  const handleCloseGiftModal = () => setOpenGiftModal(false);
+
+  const handleOpenCommentModal = (user) => {
+    setSelectedUser(user);
+    setOpenCommentModal(true);
+  };
+
+  const handleCloseCommentModal = () => setOpenCommentModal(false);
 
   return (
     <div className="flex flex-col gap-6">
@@ -88,14 +97,17 @@ export function UserStatus() {
           </div>
           <div className="flex items-center gap-2">
             <Tooltip content="Comment" placement="top">
-              <button className="flex items-center text-gray-500 hover:text-blue-500">
+              <button
+                className="flex items-center text-gray-500 hover:text-blue-500"
+                onClick={() => handleOpenCommentModal(user)}
+              >
                 <ChatBubbleLeftEllipsisIcon className="h-6 w-6" />
               </button>
             </Tooltip>
             <Tooltip content="Send Gift" placement="top">
-              <button 
+              <button
                 className="flex items-center text-gray-500 hover:text-green-500"
-                onClick={handleOpen}
+                onClick={handleOpenGiftModal}
               >
                 <GiftIcon className="h-6 w-6" />
               </button>
@@ -103,7 +115,14 @@ export function UserStatus() {
           </div>
         </div>
       ))}
-      <Gift open={open} handleClose={handleClose} />
+      <Gift open={openGiftModal} handleClose={handleCloseGiftModal} />
+      {selectedUser && (
+        <CommentModal
+          open={openCommentModal}
+          handleClose={handleCloseCommentModal}
+          userName={selectedUser.name}
+        />
+      )}
     </div>
   );
 }
