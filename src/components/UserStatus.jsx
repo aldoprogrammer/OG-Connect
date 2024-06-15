@@ -87,7 +87,7 @@ export function UserStatus() {
   return (
     <div className="flex flex-col gap-6">
       {userData.map(user => (
-        <div key={user.id} className="flex items-center gap-4">
+        <div key={user.id} className="flex items-center gap-4 shadow-md p-4 rounded-md">
           <Avatar src={user.avatar} alt={user.name} />
           <div className="flex-grow">
             <Typography variant="h6">{user.name}</Typography>
