@@ -1,7 +1,8 @@
 # OG-Connect
 
 ## Tagline
-Update your social life's status, and get rewarded.
+Share your story, earn rewards, and elevate your social experience.
+
 
 ## Description
 OG-Connect is a groundbreaking platform that combines AI and Web3 technologies to revolutionize social media interactions. Users can upload and enhance their social media statuses using AI tools for rewriting and grammar correction. The platform leverages decentralized Web3 principles to ensure data privacy, security, and transparency. Users can receive gifts based on their posts, fostering a supportive and engaging community.
