@@ -20,7 +20,8 @@ OG-Connect integrates AI technologies to enhance social media interactions withi
 OG-Connect transforms social networking by embedding Web3 principles into its core functionalities. Through decentralized data management and transparent reward mechanisms, users can securely share and enhance their social media posts. The platform promotes community engagement through AI-powered content improvements and real-time interaction features, ensuring a supportive and rewarding social experience. OG-Connect exemplifies the evolution of social platforms within the Web3 landscape, emphasizing trust, privacy, and user empowerment.
 
 ## Challenges I Ran Into
-During development, integrating AI functionalities such as rewriting and grammar correction posed challenges due to I have to work by myself at this team. Additionally, ensuring seamless compatibility of these AI tools with the decentralized Web3 framework required optimization of data transmission protocols and enhancement of AI algorithms to operate effectively within 0G constraints. And the UI for frontend side still kind of late for me to completed everything that I have in mind to keep implementing it.
+Implementing the AI and creating the entire user interface in a short timeframe was challenging, especially without a team. Currently, only the frontend is developed to present the core idea. In the future, it will be beneficial to fully implement all the features based on this concept.
+
 
 ## Technologies Used
 - React
